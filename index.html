@@ -1,179 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>100 Day’s 100 Job’s</title>
-  <style>
-    body {
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobstechjobs</title>
+    <script src="https://kit.fontawesome.com/93e17417c7.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #f7a2c7, #6179ff7f);
+            margin: 0;
+            padding: 0;
+        }
 
-    h1 {
-      font-size: 48px;
-      margin: 30px 0 10px;
-      font-weight: bold;
-    }
+        .text h2 {
+            text-align: center;
+        }
+        .text a {
+            color: Black;
+            text-decoration: none;
+        }
 
-    .icons {
-      margin-bottom: 30px;
-    }
+        .container {
+            margin: 2% auto;
+            padding: 20px;
+            max-width: 1200px;
+        }
 
-    .icons a {
-      display: inline-block;
-      margin: 0 10px;
-    }
+        .card-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .icons img {
-      width: 40px;
-      height: 40px;
-    }
+        .card {
+            background: #ffffff8e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
 
-    .logo-section {
-      margin-bottom: 30px;
-    }
+        .card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
 
-    .job-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+        .card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
 
-    .job-card {
-      background-color: #00a8c6;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
+        button {
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            color: Sky Blue;
+            background: #4CAF50;
+            font-size: 16px;
+        }
 
-    .job-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
+        button:hover {
+            opacity: 0.9;
+        }
 
-    .info {
-      padding: 15px;
-    }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10%;
+            }
 
-    .info h3 {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    .info p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-
-    .apply-btn {
-      display: inline-block;
-      background-color: #3d3ddf;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .loader {
-      display: none;
-      color: white;
-      margin: 20px 0;
-    }
-
-    @media (max-width: 600px) {
-      .job-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>100 Day’s 100 Job’s</h1>
-
-  <div class="icons">
-    <a href="https://youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
-    <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
-    <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
-    <a href="https://wa.me/919999999999" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
-  </div>
-
-  <div class="loader" id="loader">Loading jobs...</div>
-  <div class="job-grid" id="jobGrid"></div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Tabletop.js/1.5.4/tabletop.min.js"></script>
-  <script>
-    function renderJobs(data) {
-      const grid = document.getElementById('jobGrid');
-      const loader = document.getElementById('loader');
-      loader.style.display = 'none';
-
-      data.forEach(job => {
-        const logo = job['Logo URL'] || 'https://via.placeholder.com/300x180?text=No+Logo';
-        const company = job['Company Name'] || 'Unknown Company';
-        const position = job['Position'] || 'Unknown Position';
-        const applyLink = job['Apply Link'] || '#';
-
-        const card = document.createElement('div');
-        card.className = 'job-card';
-
-        const image = document.createElement('img');
-        image.src = logo;
-        image.alt = company;
-
-        const info = document.createElement('div');
-        info.className = 'info';
-
-        const companyName = document.createElement('h3');
-        companyName.textContent = `Company Name - ${company}`;
-
-        const positionEl = document.createElement('p');
-        positionEl.textContent = `Position - ${position}`;
-
-        const button = document.createElement('a');
-        button.className = 'apply-btn';
-        button.textContent = 'Apply Now';
-        button.href = '#';
-        button.onclick = (e) => {
-          e.preventDefault();
-          if (applyLink.includes('@')) {
-            window.location.href = `https://mail.google.com/mail/?view=cm&to=${applyLink}`;
-          } else {
-            window.open(applyLink, '_blank');
-          }
+    <div class="header">
+        <div class="text">
+           <h1 style="text-align: center;">
+  <a href="https://www.hiringstores.com/">Latest Job Alert From top Industry</a>
+</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card-main" id="cardContainer">
+            <div class="card">
+                <img src="	https://logowik.com/content/uploads/images/ey8162.logowik.com.webp" alt="Apply Now">
+                <h2>SAP Consultant at EY</h2>
+                <button onclick="page.open('mridula.bokde.ext@adani.com')">mridula.bokde.ext@adani.com</button>
+            </div>     
+            <div class="card">
+                <img src="		https://download.logo.wine/logo/Hero_MotoCorp/Hero_MotoCorp-Logo.wine.png">
+                <h2>job alerts </h2>
+                <button onclick="window.open('https://jobstechjobs.com/amazing-job-opportunities-at-heromotocorp-2025/')">Apply Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function getRandomSeed() {
+        const array = new Uint32Array(1);
+        window.crypto.getRandomValues(array); // Secure random number
+        return array[0]; // Return unique random seed per user
+        }
+        
+        function shuffleCards() {
+        const container = document.getElementById('cardContainer');
+        const cards = Array.from(container.children);
+        
+        // Generate a unique random seed per user
+        let seed = getRandomSeed();
+        
+        // Shuffle using seed
+        const shuffled = cards.sort(() => {
+        seed = (seed * 16807) % 2147483647; // Linear Congruential Generator
+        return (seed % 2 === 0) ? 1 : -1; // Shuffle based on even/odd
+        });
+        
+        // Reorder the container
+        container.innerHTML = "";
+        shuffled.forEach(card => container.appendChild(card));
+        }
+        
+        window.onload = function() {
+        shuffleCards(); // Shuffle when the page loads
+        
+        // Set an interval to reshuffle every 30 minutes
+        setInterval(shuffleCards, 1800000);
         };
-
-        info.appendChild(companyName);
-        info.appendChild(positionEl);
-        info.appendChild(button);
-
-        card.appendChild(image);
-        card.appendChild(info);
-
-        grid.appendChild(card);
-      });
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('loader').style.display = 'block';
-      Tabletop.init({
-        key: 'https://docs.google.com/spreadsheets/d/1V5fgaCYxYSMBb2YN7I8VD7PIc6M2o0I3c7vN9XDSSJc/edit?usp=sharing',
-        simpleSheet: true,
-        callback: renderJobs
-      });
-    });
-  </script>
+        </script>
+   
 </body>
 </html>
