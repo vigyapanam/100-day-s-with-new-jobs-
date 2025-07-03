@@ -3,50 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>100 Day's 100 Job's</title>
+  <title>100 Day’s 100 Job’s</title>
   <style>
     body {
       background-color: #000;
-      color: #fff;
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      color: white;
+      text-align: center;
     }
+
     h1 {
       font-size: 48px;
-      margin: 30px 0;
+      margin: 30px 0 10px;
+      font-weight: bold;
     }
+
+    .icons {
+      margin-bottom: 30px;
+    }
+
+    .icons a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .icons img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-section {
+      margin-bottom: 30px;
+    }
+
     .job-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
       padding: 20px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
     }
+
     .job-card {
       background-color: #00a8c6;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
+
     .job-card img {
       width: 100%;
-      height: auto;
+      height: 180px;
+      object-fit: cover;
     }
-    .job-card .info {
+
+    .info {
       padding: 15px;
     }
-    .job-card .info h3 {
-      margin: 10px 0;
-      color: white;
+
+    .info h3 {
       font-size: 18px;
+      margin: 10px 0;
     }
-    .job-card .info p {
+
+    .info p {
       margin: 5px 0;
-      color: white;
+      font-size: 14px;
     }
+
     .apply-btn {
       display: inline-block;
       background-color: #3d3ddf;
@@ -56,32 +83,91 @@
       border-radius: 20px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .loader {
+      display: none;
+      color: white;
+      margin: 20px 0;
     }
   </style>
 </head>
 <body>
-  <h1>100 Day's 100 Job's</h1>
+  <h1>100 Day’s 100 Job’s</h1>
 
-  <div class="job-grid">
-    <!-- Repeat this block for each job -->
-    <div class="job-card">
-      <img src="https://www.jobstechjobs.com/images/bosch.jpg" alt="Bosch India">
-      <div class="info">
-        <h3>Company Name - Bosch India</h3>
-        <p>Position - Graduate Engineer Trainee</p>
-        <a href="https://careers.bosch.in/job-apply-link" class="apply-btn" target="_blank">Apply Now</a>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <img src="https://www.jobstechjobs.com/images/bosch.jpg" alt="Bosch India">
-      <div class="info">
-        <h3>Company Name - Bosch India</h3>
-        <p>Position - Graduate Engineer Trainee</p>
-        <a href="mailto:hr@bosch.com" class="apply-btn">Apply Now</a>
-      </div>
-    </div>
-    <!-- Add more job-cards here as needed -->
+  <div class="icons">
+    <a href="https://youtube.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+    <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+    <a href="https://t.me/yourchannel" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
+    <a href="https://wa.me/919999999999" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
   </div>
+
+  <div class="loader" id="loader">Loading jobs...</div>
+  <div class="job-grid" id="jobGrid"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Tabletop.js/1.5.4/tabletop.min.js"></script>
+  <script>
+    function renderJobs(data) {
+      const grid = document.getElementById('jobGrid');
+      const loader = document.getElementById('loader');
+      loader.style.display = 'none';
+
+      data.forEach(job => {
+        const logo = job['Logo URL'] || 'https://via.placeholder.com/300x180?text=No+Logo';
+        const company = job['Company Name'] || 'Unknown Company';
+        const position = job['Position'] || 'Unknown Position';
+        const applyLink = job['Apply Link'] || '#';
+
+        const card = document.createElement('div');
+        card.className = 'job-card';
+
+        const image = document.createElement('img');
+        image.src = logo;
+        image.alt = company;
+
+        const info = document.createElement('div');
+        info.className = 'info';
+
+        const companyName = document.createElement('h3');
+        companyName.textContent = `Company Name - ${company}`;
+
+        const positionEl = document.createElement('p');
+        positionEl.textContent = `Position - ${position}`;
+
+        const button = document.createElement('a');
+        button.className = 'apply-btn';
+        button.textContent = 'Apply Now';
+        button.href = '#';
+        button.onclick = (e) => {
+          e.preventDefault();
+          if (applyLink.includes('@')) {
+            window.location.href = `https://mail.google.com/mail/?view=cm&to=${applyLink}`;
+          } else {
+            window.open(applyLink, '_blank');
+          }
+        };
+
+        info.appendChild(companyName);
+        info.appendChild(positionEl);
+        info.appendChild(button);
+
+        card.appendChild(image);
+        card.appendChild(info);
+
+        grid.appendChild(card);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('loader').style.display = 'block';
+      Tabletop.init({
+        key: 'https://docs.google.com/spreadsheets/d/1V5fgaCYxYSMBb2YN7I8VD7PIc6M2o0I3c7vN9XDSSJc/edit?usp=sharing',
+        simpleSheet: true,
+        callback: renderJobs
+      });
+    });
+  </script>
 </body>
 </html>
