@@ -1,141 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobstechjobs</title>
-    <script src="https://kit.fontawesome.com/93e17417c7.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: radial-gradient(circle, #f7a2c7, #6179ff7f);
-            margin: 0;
-            padding: 0;
-        }
-
-        .text h2 {
-            text-align: center;
-        }
-        .text a {
-            color: Black;
-            text-decoration: none;
-        }
-
-        .container {
-            margin: 2% auto;
-            padding: 20px;
-            max-width: 1200px;
-        }
-
-        .card-main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .card {
-            background: #ffffff8e;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            width: 300px;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-        .card:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        button {
-            bottom: 0;
-            width: 100%;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            color: Sky Blue;
-            background: #4CAF50;
-            font-size: 16px;
-        }
-
-        button:hover {
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10%;
-            }
-
-            .card {
-                width: 90%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Day's 100 Job's</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 48px;
+      margin: 30px 0;
+    }
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .job-card {
+      background-color: #00a8c6;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    .job-card img {
+      width: 100%;
+      height: auto;
+    }
+    .job-card .info {
+      padding: 15px;
+    }
+    .job-card .info h3 {
+      margin: 10px 0;
+      color: white;
+      font-size: 18px;
+    }
+    .job-card .info p {
+      margin: 5px 0;
+      color: white;
+    }
+    .apply-btn {
+      display: inline-block;
+      background-color: #3d3ddf;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="text">
-           <h1 style="text-align: center;">
-  <a href="https://www.hiringstores.com/">Latest Job Alert From top Industry</a>
-</h1>
-        </div>
+  <h1>100 Day's 100 Job's</h1>
+
+  <div class="job-grid">
+    <!-- Repeat this block for each job -->
+    <div class="job-card">
+      <img src="https://www.jobstechjobs.com/images/bosch.jpg" alt="Bosch India">
+      <div class="info">
+        <h3>Company Name - Bosch India</h3>
+        <p>Position - Graduate Engineer Trainee</p>
+        <a href="https://careers.bosch.in/job-apply-link" class="apply-btn" target="_blank">Apply Now</a>
+      </div>
     </div>
-    <div class="container">
-        <div class="card-main" id="cardContainer">
-            <div class="card">
-                <img src="	https://logowik.com/content/uploads/images/ey8162.logowik.com.webp" alt="Apply Now">
-                <h2>SAP Consultant at EY</h2>
-                <button onclick="page.open('mridula.bokde.ext@adani.com')">mridula.bokde.ext@adani.com</button>
-            </div>     
-            <div class="card">
-                <img src="		https://download.logo.wine/logo/Hero_MotoCorp/Hero_MotoCorp-Logo.wine.png">
-                <h2>job alerts </h2>
-                <button onclick="window.open('https://jobstechjobs.com/amazing-job-opportunities-at-heromotocorp-2025/')">Apply Now</button>
-            </div>
-        </div>
+
+    <div class="job-card">
+      <img src="https://www.jobstechjobs.com/images/bosch.jpg" alt="Bosch India">
+      <div class="info">
+        <h3>Company Name - Bosch India</h3>
+        <p>Position - Graduate Engineer Trainee</p>
+        <a href="mailto:hr@bosch.com" class="apply-btn">Apply Now</a>
+      </div>
     </div>
-    <script>
-        function getRandomSeed() {
-        const array = new Uint32Array(1);
-        window.crypto.getRandomValues(array); // Secure random number
-        return array[0]; // Return unique random seed per user
-        }
-        
-        function shuffleCards() {
-        const container = document.getElementById('cardContainer');
-        const cards = Array.from(container.children);
-        
-        // Generate a unique random seed per user
-        let seed = getRandomSeed();
-        
-        // Shuffle using seed
-        const shuffled = cards.sort(() => {
-        seed = (seed * 16807) % 2147483647; // Linear Congruential Generator
-        return (seed % 2 === 0) ? 1 : -1; // Shuffle based on even/odd
-        });
-        
-        // Reorder the container
-        container.innerHTML = "";
-        shuffled.forEach(card => container.appendChild(card));
-        }
-        
-        window.onload = function() {
-        shuffleCards(); // Shuffle when the page loads
-        
-        // Set an interval to reshuffle every 30 minutes
-        setInterval(shuffleCards, 1800000);
-        };
-        </script>
-   
+    <!-- Add more job-cards here as needed -->
+  </div>
 </body>
 </html>
