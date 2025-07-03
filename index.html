@@ -1,183 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Links</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet">
+    <title>Jobstechjobs</title>
+    <script src="https://kit.fontawesome.com/93e17417c7.js" crossorigin="anonymous"></script>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #e3f2fd;
-            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #f7a2c7, #6179ff7f);
             margin: 0;
-            padding: 20px;
-            font-family: "Source Code Pro", serif;
-            font-size: 70%;
+            padding: 0;
+        }
+
+        .text h2 {
+            text-align: center;
+        }
+        .text a {
+            color: Black;
+            text-decoration: none;
         }
 
         .container {
-            text-align: center;
-            background: white;
+            margin: 2% auto;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+        }
+
+        .card-main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: #ffffff8e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
             width: 100%;
-            max-width: 500px;
-            margin: 1px;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
         }
 
         button {
-            margin-bottom: 10px;
-            padding: 3px;
+            bottom: 0;
             width: 100%;
-            border: 1px black dotted;
-            background-color: rgba(255, 0, 0, 0.471);
-            height: 6vh;
-            border-radius: 10px;
-            font-family: "Source Code Pro", serif;
-            transition: .3s;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            color: Blue;
+            background: #4CAF50;
+            font-size: 16px;
         }
 
         button:hover {
-            color: white;
+            opacity: 0.9;
         }
 
-        .profile-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .bio {
-            font-size: 0.9em;
-            color: gray;
-            margin-bottom: 15px;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            background: white;
-            color: black;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            border: 1px dashed black;
-        }
-
-        .link:hover {
-            background: #d1e8ff;
-        }
-
-        .link img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .link-content {
-            display: flex;
-            align-items: center;
-        }
-
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .container {
-                padding: 15px;
-                margin: 1px;
+                padding: 10%;
             }
 
-            .link {
-                padding: 10px;
-            }
-
-            .profile-img {
-                width: 70px;
-                height: 70px;
+            .card {
+                width: 90%;
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="container" id="top">
-        <img src="WhatsApp Image 2025-06-28 at 17.20.28"
-            alt="Profile" class="profile-img">
-        <div class="name">@topmateFree Job Referrals/Free Mock Interview/Free Resume Review</div>
-        <div class="bio">Will be updated to add more profiles & remove those with fully booked slots.</div>
-
-        <div class="links">
-            <a href="https://topmate.io/prem_nayak/1442407/pay?utm_content=ai_search_182028&&utm_source=scout_business&utm_medium=hito&utm_campaign=scout11" class="link">
-                <div class="link-content">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwA…IYRHEsAhiWAQxLIL+Kay/AKkM/ptUoKMoAAAAAElFTkSuQmCC" alt="Profile">
-                    wells fargo/Free Job Referral
-                </div>
-             <a href=" https://unstop.com/auth/signup?utm_source=Techsol&utm_medium=Affiliates&utm_campaign=signup&ref=AffTS3" class="link" target="_blank" rel="noopener">
-                <div class="link-content">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJqv4216c9FBiOor7NN2N5WPueV28C0RDxX_YYKph6XPmuCORcdgYngfG2&s=10" alt="Profile">
-            Google SWE / Free Job Alerts
-                </div>
-            </a>
-        </div> <!-- Closing .links div -->
-    </div> <!-- Closing .container div -->
+    <div class="header">
+        <div class="text">
+           <h1 style="text-align: center;">
+  <a href="https://www.hiringstores.com/">Latest Job Alert From top Industry</a>
+</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card-main" id="cardContainer">
+            <div class="card">
+                <img src="		https://logowik.com/content/uploads/images/ey8162.logowik.com.webp" alt="Apply Now">
+                <h2>SAP Consultant at EY</h2>
+                <button onclick="window.open('https://jobstechjobs.com/job/sap-consultants/')">Apply Now</button>
+            </div>     
+            <div class="card">
+                <img src="		https://download.logo.wine/logo/Hero_MotoCorp/Hero_MotoCorp-Logo.wine.png">
+                <h2>Amazing Job Opportunities at HeroMotoCorp 2025</h2>
+                <button onclick="window.open('https://jobstechjobs.com/amazing-job-opportunities-at-heromotocorp-2025/')">Apply Now</button>
+            </div>
+        </div>
+    </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            function getRandomSeed() {
-                const array = new Uint32Array(1);
-                window.crypto.getRandomValues(array); // Secure random number
-                return array[0]; // Unique seed per user
-            }
-
-            function shuffleLinks() {
-                const linksContainer = document.querySelector(".links");
-                const links = Array.from(linksContainer.children);
-
-                // Generate a unique random seed per user
-                let seed = getRandomSeed();
-
-                // Shuffle using seed (Linear Congruential Generator)
-                const shuffled = links.sort(() => {
-                    seed = (seed * 16807) % 2147483647;
-                    return (seed % 2 === 0) ? 1 : -1;
-                });
-
-                // Append shuffled links back to the container
-                linksContainer.innerHTML = "";
-                shuffled.forEach(link => linksContainer.appendChild(link));
-            }
-
-            shuffleLinks(); // Shuffle on page load
-
-            // Reshuffle every 30 minutes (1800000 milliseconds)
-            setInterval(shuffleLinks, 1800000);
+        function getRandomSeed() {
+        const array = new Uint32Array(1);
+        window.crypto.getRandomValues(array); // Secure random number
+        return array[0]; // Return unique random seed per user
+        }
+        
+        function shuffleCards() {
+        const container = document.getElementById('cardContainer');
+        const cards = Array.from(container.children);
+        
+        // Generate a unique random seed per user
+        let seed = getRandomSeed();
+        
+        // Shuffle using seed
+        const shuffled = cards.sort(() => {
+        seed = (seed * 16807) % 2147483647; // Linear Congruential Generator
+        return (seed % 2 === 0) ? 1 : -1; // Shuffle based on even/odd
         });
-    </script>
+        
+        // Reorder the container
+        container.innerHTML = "";
+        shuffled.forEach(card => container.appendChild(card));
+        }
+        
+        window.onload = function() {
+        shuffleCards(); // Shuffle when the page loads
+        
+        // Set an interval to reshuffle every 30 minutes
+        setInterval(shuffleCards, 1800000);
+        };
+        </script>
+   
 </body>
-
 </html>
