@@ -171,25 +171,7 @@
       return array[0];
     }
 
-    function shuffleCards() {
-      const container = document.getElementById('cardContainer');
-      const cards = Array.from(container.children);
-      let seed = getRandomSeed();
-
-      const shuffled = cards.sort(() => {
-        seed = (seed * 16807) % 2147483647;
-        return (seed % 2 === 0) ? 1 : -1;
-      });
-
-      container.innerHTML = "";
-      shuffled.forEach(card => container.appendChild(card));
-    }
-
-    window.onload = function() {
-      shuffleCards();
-      setInterval(shuffleCards, 1800000);
-    };
-  </script>
+  
 
 </body>
 </html>
