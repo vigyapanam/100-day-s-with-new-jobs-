@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Alerts Signup</title>
+<style>
+    body { font-family: Arial; background: #f4f4f4; padding: 50px; }
+    .container { max-width: 400px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+    input[type="text"], input[type="email"] { width: 100%; padding: 10px; margin: 5px 0; }
+    button { padding: 10px 20px; background: #0073e6; color: #fff; border: none; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Subscribe for Job Alerts</h2>
+    <form id="signupForm">
+        <input type="text" name="name" placeholder="Full Name" required><br>
+        <input type="email" name="email" placeholder="Email Address" required><br>
+        <button type="submit">Subscribe</button>
+    </form>
+    <p id="message"></p>
+</div>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+
+    // Example: Save data to Google Sheet using Form or API
+    fetch("YOUR_BACKEND_URL_OR_GOOGLE_SCRIPT", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({name, email})
+    })
+    .then(res => res.text())
+    .then(res => document.getElementById("message").innerText = "Thank you for subscribing!")
+    .catch(err => document.getElementById("message").innerText = "Error! Try again.");
+});
+</script>
+
+</body>
+</html>
